@@ -1,9 +1,24 @@
 document.onkeydown = typeGame;  //キー押下時に関数typeGame()を呼び出す
 
 //文字を格納する配列
-var moji = new Array("Ａ","Ｂ","Ｃ","Ｄ","Ｅ","Ｆ","Ｇ","Ｈ","Ｉ",
-		     "Ｊ","Ｋ","Ｌ","Ｍ","Ｎ","Ｏ","Ｐ","Ｑ","Ｒ",
-		     "Ｓ","Ｔ","Ｕ","Ｖ","Ｗ","Ｘ","Ｙ","Ｚ");
+var moji = ["Ａ","Ｂ","Ｃ","Ｄ","Ｅ","Ｆ","Ｇ","Ｈ","Ｉ",
+	    "Ｊ","Ｋ","Ｌ","Ｍ","Ｎ","Ｏ","Ｐ","Ｑ","Ｒ",
+	    "Ｓ","Ｔ","Ｕ","Ｖ","Ｗ","Ｘ","Ｙ","Ｚ"];
+
+var moji_s = ["a","b","c","d","e","f","g","h","i",
+	      "j","k","l","m","n","o","p","q","r",
+	      "s","t","u","v","w","x","y","z"];
+
+var hiragana = ["あ","い","う","え","お",
+		"か","き","く","け","こ",
+		"さ","し","す","せ","そ",
+		"た","ち","つ","て","と",
+		"な","に","ぬ","ね","の",
+		"は","ひ","ふ","へ","ほ",
+		"ま","み","む","め","も",
+		"や","ゆ","よ",
+		"わ","を","ん"];
+
 
 //キーコードを格納する配列
 var kcode = new Array(65,66,67,68,69,70,71,72,73,
@@ -17,11 +32,12 @@ var rnd = new Array();
 var mondai = "";       //問題の文字列を格納
 var cnt=0;             //何問目か格納
 var typStart,typEnd;   //開始時と終了時の時刻を格納
+var maxlen = 20
 
 //0～25までの乱数を200個作成して配列rndに格納する関数
 function ransu()
 {
-    for ( var i = 0 ; i < 200 ; i++ )
+    for ( var i = 0 ; i < maxlen ; i++ )
     {
         rnd[i] = Math.floor( Math.random() * 26 );
     }
@@ -37,15 +53,33 @@ function gameSet()
     //乱数作成関数の呼び出し
     ransu();
 
+    
     //問題文の作成（配列mojiの要素をランダムに200文字繋げる）
     //mondai= "" + moji[rnd[0]] + moji[rnd[1]] + … + moji[rnd[199]]となる
-    for ( var i = 0 ; i < 200 ; i++)
+/*
+    for ( var i = 0 ; i < maxlen ; i++)
     {
         mondai =  mondai + moji[ rnd[i] ];
     }
-
+*/
+/*
+    kanji = "京都嵯峨野";
+    yomi = "きょうとさがの";
+    eiji = "KYOUTOSAGANO";
+*/
+    kanji = "か";
+    yomi = "か";
+    eiji = "KA";
+    
     //問題枠に表示する
-    document.getElementById("waku").innerHTML = mondai;
+    document.getElementById("kanji").innerHTML = kanji;
+    document.getElementById("yomi").innerHTML = yomi;
+    document.getElementById("eiji").innerHTML = eiji;
+}
+
+function KeyMatch( kc ){
+    
+    return true;
 }
 
 //キー入力を受け取る関数
@@ -63,7 +97,8 @@ function typeGame(evt)
         kc = evt.which;
     }
     //入力されたキーコードと、問題文のキーコードを比較
-    if (kc == kcode[ rnd[cnt] ])
+    
+    if ( KeyMatch( kc ) )
     {
         //以下、キーコードが一致した時の処理
 
@@ -76,7 +111,7 @@ function typeGame(evt)
         cnt++; //カウント数を＋１にする
 
         //全文字入力したか確認
-        if ( cnt < 200)
+        if ( cnt < maxlen )
 	{
 	    //問題文の頭の一文字を切り取る
 	    mondai = mondai.substring(1,mondai.Length);
