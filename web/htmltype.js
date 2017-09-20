@@ -59,7 +59,7 @@ function gameSet()
 function mondaiSet()
 {
     Mondai = Array(
-        "html","body","color","div","class","main","h","ul","ol","table","li","tr","td","th","form","href","img","src","alt","width","height","br","padding","margin","left","right","clear","color","line-height","border-bottom","font-size","list-style-type","font-weight","text-decoration","display","background-color","background-image","background-position","background-irepeat","float","vertical-align"
+        "html","body","color","div","class","main","h","ul","ol","table","li","tr","td","th","form","href","img","src","alt","width","height","br","padding","margin","left","right","clear","color","line-height","border-bottom","font-size","list-style-type","font-weight","text-decoration","display","background-color","background-image","background-position","background-repeat","float","vertical-align"
     );
 
     ransu();
