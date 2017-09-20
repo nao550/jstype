@@ -3,13 +3,24 @@
 #main {
 }
 
-div#waku{
+#area{
     margin: 0 auto;
     padding: 0;
 
     border:8px double navy;
     width:600px;
     height:300px;
+    position: relative;
+}
+
+#waku{
+    margin: 20px;
     font-size:18pt;
     overflow:auto;
+}
+
+.moko {
+    position: absolute;
+    top: 200px;
+    left: 450px;
 }
