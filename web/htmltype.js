@@ -122,6 +122,7 @@ function typeGame(evt)
                 "ミスタイプ： -" + mistype + "点<br />\n";
             
             document.getElementById("waku").innerHTML = endMoji;
+            document.getElementById("mokoimg").src = "./img/moko2.png";
             document.onkeydown = "";
         }
     } else {
