@@ -21,7 +21,7 @@ var mojicode = {
 var rnd = new Array();
 
 //グローバル変数群
-var mondaisuu = 42;     // 問題数を設定
+var mondaisuu = 41;     // 問題数を設定
 var cntMax = 10;       // 全問題数
 var arMondai = new Array (); //問題文列を格納
 var mondai = "";       //問題を格納
@@ -59,7 +59,7 @@ function gameSet()
 function mondaiSet()
 {
     Mondai = Array(
-        "html","body","color","div","class","main","abc","h1","ul","ol","table","li","tr","td","th","form","href","img","src","alt","width","height","br","padding","margin","left","right","clear","color","line-height","border-bottom","font-size","list-style-type","font-weight","text-decoration","display","background-color","background-image","background-position","background-irepeat","float","vertical-align"
+        "html","body","color","div","class","main","h","ul","ol","table","li","tr","td","th","form","href","img","src","alt","width","height","br","padding","margin","left","right","clear","color","line-height","border-bottom","font-size","list-style-type","font-weight","text-decoration","display","background-color","background-image","background-position","background-irepeat","float","vertical-align"
     );
 
     ransu();
