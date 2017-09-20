@@ -14,15 +14,15 @@ var kcode = new Array(32,65,66,67,68,69,70,71,72,73,
 var mojicode = {
     a:65,b:66,c:67,d:68,e:69,f:70,g:71,h:72,i:73,j:74,k:75,
     l:76,m:77,n:78,o:79,p:80,q:81,r:82,s:83,t:84,u:85,
-    v:86,w:87,x:88,y:89,z:90
+    v:86,w:87,x:88,y:89,z:90,"-":189
 }
 
 //0～25までの乱数を格納する配列
 var rnd = new Array();
 
 //グローバル変数群
-var mondaisuu = 7;     // 問題数を設定
-var cntMax = 3;       // 全問題数
+var mondaisuu = 42;     // 問題数を設定
+var cntMax = 10;       // 全問題数
 var arMondai = new Array (); //問題文列を格納
 var mondai = "";       //問題を格納
 var cnt=0;             //何問目か格納
@@ -59,7 +59,7 @@ function gameSet()
 function mondaiSet()
 {
     Mondai = Array(
-        "html","body","color","div","class","main","abc"
+        "html","body","color","div","class","main","abc","h1","ul","ol","table","li","tr","td","th","form","href","img","src","alt","width","height","br","padding","margin","left","right","clear","color","line-height","border-bottom","font-size","list-style-type","font-weight","text-decoration","display","background-color","background-image","background-position","background-irepeat","float","vertical-align"
     );
 
     ransu();
