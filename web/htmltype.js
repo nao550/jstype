@@ -29,7 +29,7 @@ var cnt=0;             //何問目か格納
 var typStart,typEnd;   //開始時と終了時の時刻を格納
 var tokuten = 0;       //得点
 var mistype = 0;          // ミスの回数
-
+var typnum = 0;        // 打キー数
 
 
 //0～問題文列までの乱数を作成して配列rndに格納する関数
@@ -73,6 +73,7 @@ function mondaiSet()
 function typeGame(evt)
 {
     var kc;  //入力されたキーコードを格納する変数
+    typnum++;
 
     // ゲームスタート
     if ( typStart == ""){
@@ -122,7 +123,13 @@ function typeGame(evt)
                 "ミスタイプ： -" + mistype + "点<br />\n";
             
             document.getElementById("waku").innerHTML = endMoji;
-            document.getElementById("mokoimg").src = "./img/moko2.png";
+
+            // 1割ミスしたらしかめモコちゃん
+            if (( 0.1 > ( mistype / tokuten)) || (mistype == 0 )){
+                document.getElementById("mokoimg").src = "./img/moko2.png";
+            } else {
+                document.getElementById("mokoimg").src = "./img/moko3.png";
+            }
             document.onkeydown = "";
         }
     } else {
