@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
+#main {
+}
+
 div#waku{
+    margin: 0 auto;
+    padding: 0;
+
     border:8px double navy;
-    width:400px;
+    width:600px;
     height:300px;
     font-size:18pt;
     overflow:auto;
