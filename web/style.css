@@ -19,6 +19,15 @@
     overflow:auto;
 }
 
+#uwaku {
+    margin: 0 auto;
+    padding: 0;
+    width:600px;
+    position: relative;
+    text-align: right;
+    margin-top: 5px;
+}
+
 .moko {
     position: absolute;
     top: 200px;

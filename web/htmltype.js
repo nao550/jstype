@@ -1,12 +1,12 @@
 document.onkeydown = typeGame;  //キー押下時に関数typeGame()を呼び出す
 
 
-//文字を格納する配列
+//文字を格納する配列 // 現在使用していない
 var moji = new Array("　","a","b","c","d","e","f","g","h","i",
                      "j","k","l","m","n","o","p","q","r",
                      "s","t","u","v","w","x","y","z");
 
-//キーコードを格納する配列
+//キーコードを格納する配列 // 現在使用していない
 var kcode = new Array(32,65,66,67,68,69,70,71,72,73,
                       74,75,76,77,78,79,80,81,82,
                       83,84,85,86,87,88,89,90);
@@ -68,12 +68,37 @@ function mondaiSet()
     document.getElementById("waku").innerHTML = mondai;
 }
 
+function keyChk( kc )
+{
+    switch (kc) {
+        case 59: // ;
+            return 187;
+          break;
+        case 58: // :
+           return 186;
+          break;
+        case 173:  // -
+           return 189;
+           break;
+        case 160:  // ^
+          return 222;
+          break;
+        case 220:  // \
+           return 226;
+           break;
+        case 54:  // @
+           return 192;
+           break;
+        default:
+            return kc;
+    }
+}
 
 //キー入力を受け取る関数
 function typeGame(evt)
 {
     var kc;  //入力されたキーコードを格納する変数
-    typnum++;
+    typnum++;　
 
     // ゲームスタート
     if ( typStart == ""){
@@ -90,8 +115,10 @@ function typeGame(evt)
         kc = evt.which;
     }
     
-    var mondairetu = mondai;
-    var mondaimoji = mondairetu.slice(0,1);
+    // var mondairetu = mondai;
+    var mondaimoji = mondai.slice(0,1);
+
+    kc = keyChk(kc);
     
     //入力されたキーコードと、問題文のキーコードを比較
     //if (kc == kcode[ rnd[cnt] ])
@@ -106,15 +133,17 @@ function typeGame(evt)
             typStart = new Date();
         }
 
+        // 問題文字列の削り
         mondai = mondai.slice(1);
         if( mondai == "" ){
-            mondaiSet();
             tokuten++;
             cnt++;
+            mondaiSet();            
         } else {
             document.getElementById("waku").innerHTML = mondai;            
         }
 
+        // 終了処理
         if ( cnt == cntMax ) {
             typEnd = new Date();
             var typTime = (typEnd - typStart) / 1000;
@@ -132,7 +161,9 @@ function typeGame(evt)
             }
             document.onkeydown = "";
         }
+
     } else {
+        // ミスタイプだった場合
         mistype++;
     }
 }
